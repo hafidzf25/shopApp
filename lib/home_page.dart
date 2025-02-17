@@ -107,9 +107,9 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final product = products[index];
                   return ProductCard(
-                    title: product['title'],
-                    price: product['price'],
-                    urlImage: product['imageUrl'],
+                    title: product['title'] as String,
+                    price: product['price'] as double,
+                    urlImage: product['imageUrl'] as String,
                     backgroundColor: index.isEven
                         ? Color.fromRGBO(214, 240, 253, 1)
                         : Color.fromRGBO(245, 247, 249, 1),
