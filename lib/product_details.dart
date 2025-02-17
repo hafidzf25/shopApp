@@ -26,7 +26,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           Spacer(),
-          Image.asset('assets/images/shoes1.jpg'),
+          Image.asset(widget.product['imageUrl'] as String),
           Spacer(),
           Container(
             height: 250,
