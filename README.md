@@ -1,2 +1,3 @@
-# shopApp
-Shop App using Flutter
+# shop_app
+
+A new Flutter project.
