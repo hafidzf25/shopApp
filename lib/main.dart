@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(
           seedColor: Color.fromRGBO(254, 206, 0, 1),
+          primary: Color.fromRGBO(254, 206, 0, 1),
         ),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(
