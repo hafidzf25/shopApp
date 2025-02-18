@@ -49,6 +49,16 @@ class _ProductListState extends State<ProductList> {
               ),
               Expanded(
                 child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      selectedFilter = 'All';
+                      produks = products
+                          .where((produk) => produk['title']
+                              .toString()
+                              .contains(RegExp(value, caseSensitive: false)))
+                          .toList();
+                    });
+                  },
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search),
                     hintText: 'Search',
