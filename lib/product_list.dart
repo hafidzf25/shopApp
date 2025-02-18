@@ -101,8 +101,10 @@ class _ProductListState extends State<ProductList> {
             ),
           ),
           Expanded(
-            child: size.width > 650
-                ? GridView.builder(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 650) {
+                  return GridView.builder(
                     itemCount: products.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
@@ -130,8 +132,9 @@ class _ProductListState extends State<ProductList> {
                         ),
                       );
                     },
-                  )
-                : ListView.builder(
+                  );
+                } else {
+                  return ListView.builder(
                     itemCount: products.length,
                     itemBuilder: (context, index) {
                       final product = products[index];
@@ -155,7 +158,10 @@ class _ProductListState extends State<ProductList> {
                         ),
                       );
                     },
-                  ),
+                  );
+                }
+              },
+            ),
           ),
         ],
       ),
