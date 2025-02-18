@@ -21,6 +21,7 @@ class _ProductListState extends State<ProductList> {
   );
   final List<String> filters = ['All', 'Adidas', 'Nike', 'Bata'];
   late String selectedFilter;
+  List<Map<String, Object>> produks = products;
 
   @override
   void initState() {
@@ -72,6 +73,14 @@ class _ProductListState extends State<ProductList> {
                     onTap: () {
                       setState(() {
                         selectedFilter = filter;
+                        if (filter == 'All') {
+                          produks = products;
+                        } else {
+                          produks = products
+                              .where(
+                                  (produk) => produk['merk'] == selectedFilter)
+                              .toList();
+                        }
                       });
                     },
                     child: Chip(
@@ -105,13 +114,13 @@ class _ProductListState extends State<ProductList> {
               builder: (context, constraints) {
                 if (constraints.maxWidth > 650) {
                   return GridView.builder(
-                    itemCount: products.length,
+                    itemCount: produks.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: size.width * 0.0016,
                     ),
                     itemBuilder: (context, index) {
-                      final product = products[index];
+                      final product = produks[index];
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(
@@ -135,9 +144,9 @@ class _ProductListState extends State<ProductList> {
                   );
                 } else {
                   return ListView.builder(
-                    itemCount: products.length,
+                    itemCount: produks.length,
                     itemBuilder: (context, index) {
-                      final product = products[index];
+                      final product = produks[index];
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(
