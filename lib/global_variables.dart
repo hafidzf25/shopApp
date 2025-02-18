@@ -40,14 +40,3 @@ final products = [
     'imageUrl': 'assets/images/shoes5.webp',
   },
 ];
-
-final cart = [
-  {
-    'id': '4',
-    'title': "Men's Air Jordan Cream",
-    'price': 49.52,
-    'sizes': 8,
-    'merk': 'Nike',
-    'imageUrl': 'assets/images/shoes5.webp',
-  }
-];
