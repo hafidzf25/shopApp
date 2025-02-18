@@ -22,6 +22,11 @@ class _ProductDetailsState extends State<ProductDetails> {
         'merk': widget.product['merk'],
         'imageUrl': widget.product['imageUrl'],
       });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Product added Successfully!'),
+        ),
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
